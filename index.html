@@ -77,9 +77,16 @@
               responseField.innerText = "";
             }, 10000);
           });
-          
+
         }
       });
+    }
+
+    function scrollToElement(targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", });
+      }
     }
   </script>
 </head>
@@ -99,9 +106,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <div class="navbar-nav ms-auto py-0 pe-4">
-                <a href="#tietoa-meista" class="nav-item nav-link">Tietoa meistä</a>
-                <a href="#palvelut" class="nav-item nav-link">Palvelut</a>
-                <a href="#yhteydenotto" class="nav-item nav-link"> Yhteydenotto</a>
+                <a onclick="scrollToElement('tietoa-meista')" class="nav-item nav-link">Tietoa meistä</a>
+                <a onclick="scrollToElement('palvelut')" class="nav-item nav-link">Palvelut</a>
+                <a onclick="scrollToElement('yhteydenotto')" class="nav-item nav-link"> Yhteydenotto</a>
               </div>
             </div>
           </nav>
@@ -177,7 +184,6 @@
     </div>
     <!-- About End -->
 
-
     <!-- Service Start -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -222,6 +228,73 @@
       </div>
     </div>
     <!-- Service End -->
+
+    <!-- Events Start -->
+    <div class="container-xxl py-5" id="tapahtumat">
+      <div class="text-center">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Tapahtumat</h5>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mt-4">
+            <div class="card rounded-3 event-card p-4">
+              <div class="event-card-date">
+                <span class="fw-bold">8 - 24.</span>
+                <span class="text-body fw-bold">heinäkuuta 2024</span>
+              </div>
+              <div class="event-card-content">
+                <div class="event-card-title">
+                  <h3>Kesäteatteri: Mielensäpahoittaja ja poika</h3>
+                </div>
+                <div>
+                  <div class="event-content">
+                    <div class="event-card-desc">
+                      <p>Tervetuloa nauttimaan Tuomas Kyrön hulvattomasta tragikoomisesta
+                        näytelmästä "Mielensäpahoittaja ja poika" Saarijärven kesätetterissä
+                        Karmumäen Juhlapalvelun pihassa 8-24.7.2024!
+                      </p>
+                      <p>Rooleissa nähdään
+                        karismaattiset Erkki Teittinen ja Jussi Rekonen, jotka vievät katsojat
+                        hulvattomaan matkaan isän ja pojan väliseen suhteeseen. Älä jää paitsi
+                        tästä ainutlaatuisesta tilaisuudesta kokea unohtumaton teatterielämys
+                        Saarijärvellä.
+                      </p>
+                      <p class="mb-4">Liput ovat nyt myynnissä, joten varmista paikkasi ja tule
+                        nauttimaan kesäisistä tunnelmista ja hersyvästä komiikasta yhdessä
+                        Mielensäpahoittajan ja pojan seurassa!
+                      </p>
+                      <a class="event-ticket-button" target="_blank"
+                        href="https://www.lippu.fi/eventseries/mielensaepahoittaja-ja-poika-saarijaervi-3583924/">Osta
+                        liput täältä</a>
+                      <p class="mt-5">
+                        Teatteri ReTe sivut löytyvät <a target="_blank"
+                          href="https://teatterirete.fi">teatterirete.fi</a><br>
+                        Teatterin lisätiedot: Jussi Rekonen, 044 515 8914 | jussi.rekonen@gmail.com
+                      </p>
+                    </div>
+                    <div class="even-card-image">
+                      <div>
+                      <img class="img-fluid rounded w-100 mt-2" src="img/event-1-1.jpg">
+                      <img class="img-fluid rounded w-100 mt-2" src="img/event-1-2.jpg">
+                    </div>
+                      <span class="text-body mt-1">Kuvaaja Riku Suonio</span>
+                    </div>
+                  </div>
+                  <div class="even-info mt-2 d-inline-flex">
+                    <i class="fa fa-map-marker-alt text-primary"></i>
+                    <p class="ms-2">Karhumäentie 11b, 43100 Saarijärvi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Events End -->
 
     <!-- Services Start -->
     <div class="container-xxl py-5" id="palvelut">
@@ -490,7 +563,8 @@
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="Viestit" id="message" style="height: 100px" required></textarea>
+                    <textarea class="form-control" placeholder="Viestit" id="message" style="height: 100px"
+                      required></textarea>
                     <label for="message">Viesti</label>
                   </div>
                 </div>
@@ -547,9 +621,9 @@
             </div>
             <div class="col-md-6 text-center text-md-end">
               <div class="footer-menu">
-                <a href="#tietoa-meista">Tietoa meistä</a>
-                <a href="#palvelut">Palvelut</a>
-                <a href="#yhteydenotto">Yhteydenotto</a>
+                <a onclick="scrollToElement('tietoa-meista')">Tietoa meistä</a>
+                <a onclick="scrollToElement('palvelut')">Palvelut</a>
+                <a onclick="scrollToElement('yhteydenotto')">Yhteydenotto</a>
               </div>
             </div>
           </div>

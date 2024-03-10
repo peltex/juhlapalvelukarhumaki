@@ -182,12 +182,106 @@
     }
 }
 
+/*** Events ***/
+.event-card {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.event-card .event-card-date {
+    text-align: center;
+    width: 150px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.event-card .event-card-date span:nth-of-type(1) {
+    font-size: 32px;
+}
+
+.event-card .event-card-content {
+    border-left: 1px solid #3333;
+    padding: 10px 0 0 20px;
+}
+
+.event-card .event-content {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+@media (max-width: 990px) {
+    .event-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .event-card .event-card-date {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .event-card .event-card-content {
+        border-top: 1px solid #3333;
+        border-left: unset;
+        padding: 20px 0 0 0;
+    }
+}
+
+
+.event-card .event-content .even-card-image {
+    max-width: 300px;
+}
+
+.event-card .event-content .even-card-image span {
+    font-size: 14px;
+    display: flex;
+    justify-content: end;
+}
+
+.event-card .event-content .event-card-desc .event-ticket-button {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 1200px) {
+    .event-card .event-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .event-card .event-content .even-card-image {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .event-card .event-content .even-card-image div {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .event-card .event-content .even-card-image div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
 
 /*** Service ***/
 .service-item {
     text-align: center;
     height: 100%;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
 }
 
 .service-card-container {
