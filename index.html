@@ -54,15 +54,14 @@
             message.value = "";
           };
 
-          const formData = new FormData();
-          formData.append("name", name.value);
-          formData.append("email", email.value);
-          formData.append("message", message.value);
-
-          fetch("https://www.peltex.fi/karhumaki-message.php", {
-            mode: 'cors',
+          const data = {
+            name: name.value,
+            email: email.value,
+            message: message.value
+          }
+          fetch("https://peltex-cloud-api-apim.azure-api.net/peltex-cloud-api/mail/karhumaki", {
             method: "POST",
-            body: formData,
+            body: JSON.stringify(data),
           }).then((response) => {
             const responseField = document.getElementById("responseForm");
             responseField.innerText = "Viesti lähetetty. Olemme yhteydessä mahdollisimman pian";
