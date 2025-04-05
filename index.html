@@ -59,8 +59,12 @@
             email: email.value,
             message: message.value
           }
-          fetch("https://peltex-cloud-api-apim.azure-api.net/peltex-cloud-api/mail/karhumaki", {
+          fetch("https://peltex-cloud-api-apim.azure-api.net/mail/karhumaki", {
             method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Ocp-Apim-Subscription-Key": "8f492200c2d74bee8e0d1c1331b8dae7"
+            },
             body: JSON.stringify(data),
           }).then((response) => {
             const responseField = document.getElementById("responseForm");
