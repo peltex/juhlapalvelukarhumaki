@@ -37,6 +37,10 @@
       loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        spinnerContainer.style.display = "flex";
+        loginForm.classList.add("form-greyed-out");
+        submitButton.disabled = true;
+
         const name = document.getElementById("name");
         const email = document.getElementById("email");
         const message = document.getElementById("message");
@@ -47,6 +51,10 @@
           setTimeout(() => {
             responseField.innerText = "";
           }, 5000);
+
+          spinnerContainer.style.display = "none";
+          loginForm.classList.remove("form-greyed-out");
+          submitButton.disabled = false;
         } else {
           const clearInputs = () => {
             name.value = "";
@@ -73,14 +81,21 @@
               responseField.innerText = "";
             }, 5000);
             clearInputs();
+
+	    spinnerContainer.style.display = "none";
+            loginForm.classList.remove("form-greyed-out");
+            submitButton.disabled = false;
           }).catch(e => {
             const responseField = document.getElementById("responseForm");
             responseField.innerText = "Viestin lähetys epäonnistui kokeile myöhemmin uudelleen. Voit olla meihin yhteydessä myös sähköpostilla tai soittamalla";
             setTimeout(() => {
               responseField.innerText = "";
             }, 10000);
-          });
 
+	    spinnerContainer.style.display = "none";
+            loginForm.classList.remove("form-greyed-out");
+            submitButton.disabled = false;
+          })
         }
       });
     }
@@ -554,10 +569,14 @@
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
-        <div class="col-lg-6 bg-dark d-flex align-items-center">
+        <div class="col-lg-6 bg-dark d-flex align-items-center position-relative">
           <div class="p-5">
             <h5 class="section-title ff-secondary text-start text-primary fw-normal">Yhteydenotto</h5>
             <h1 class="text-white mb-4">Lähetä meille viestiä</h1>
+            <!-- Spinner -->
+          <div id="spinnerContainer" class="spinner-container">
+            <div class="spinner"></div>
+          </div>
             <form id="messageForm">
               <div class="row g-3">
                 <div class="col-md-6">
@@ -580,7 +599,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary w-100 py-3" type="submit">Lähetä</button>
+                  <button id="submitButton" class="btn btn-primary w-100 py-3" type="submit">Lähetä</button>
                 </div>
               </div>
             </form>
